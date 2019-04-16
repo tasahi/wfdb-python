@@ -146,10 +146,9 @@ def get_plot_dims(signal, ann_samp):
 def create_figure(n_subplots, figsize):
     "Create the plot figure and subplot axes"
     fig = plt.figure(figsize=figsize)
-    axes = []
-
-    for i in range(n_subplots):
-        axes.append(fig.add_subplot(n_subplots, 1, i+1))
+    axes = [fig.add_subplot(n_subplots, 1, 1, )]
+    for i in range(1, n_subplots):
+        axes.append(fig.add_subplot(n_subplots, 1, i+1, sharex=axes[0]))
 
     return fig, axes
 
